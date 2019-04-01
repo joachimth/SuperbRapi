@@ -287,6 +287,31 @@ function menuSelect(menuNumber)
 					return;
 				}
 	
+
+				//Serial or USB communication - JT2019
+				CableDiscoverLabel = document.createElement('div');
+				CableDiscoverLabel.className = 'settingsLabel';
+				CableDiscoverLabel.innerHTML = "OBD II Serial or USB device";
+				mainContent.appendChild(CableDiscoverLabel);
+
+				CableDiscoverList = document.createElement('div');
+				CableDiscoverList.className = "settingsList";
+				mainContent.appendChild(CableDiscoverList);
+
+				currentCD = document.createElement('div');
+				currentCD.className = "settingsItem settingsItemNoClick";
+				currentCD.style.textAlign = 'left';
+				currentCD.id = 'currentCD';
+				currentCD.innerHTML = "<span style='font-weight: bold; '>Currently paired device: </span>" + currentSettings["OBD"];
+				CableDiscoverList.appendChild(currentCD);
+
+				pairCD = document.createElement('div');
+				pairCD.className = "settingsItem settingsButton";
+				pairCD.id = "pairCD";
+				pairCD.innerHTML = "Scan for devices";
+				pairCD.onClick = function() { CableDiscoverScan(); };
+				CableDiscoverList.appendChild(pairCD);
+
 				//Bluetooth
 				btLabel = document.createElement('div');
 				btLabel.className = 'settingsLabel';
