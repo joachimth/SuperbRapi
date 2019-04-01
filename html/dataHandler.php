@@ -239,16 +239,6 @@ if(in_array($_GET['action'], array('ap', 'ct')))
 	exit();
 }
 
-//Discover USB/Serial devices - JT2019
-if($_GET['action'] == "cablediscover')
-{
-	ob_start();
-	system("lsusb", $retCableDiscover);
-	$returnedJson = ob_get_clean();
-	if($retCableDiscover == 0*) echo $returnedJson;
-	exit;
-}
-
 //Discover bluetooth devices
 if($_GET['action'] == 'discover')
 {
